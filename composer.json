@@ -19,5 +19,10 @@
         "fix-dry-run": "vendor/bin/php-cs-fixer fix --dry-run --diff",
         "phpmd": "vendor/bin/phpmd src text cleancode,codesize,controversial,design,naming,unusedcode",
         "phpcpd": "vendor/bin/phpcpd src"
+    },
+    "require": {
+        "symfony/dom-crawler": "^7.3",
+        "guzzlehttp/guzzle": "^7.9",
+        "symfony/css-selector": "^7.3"
     }
 }

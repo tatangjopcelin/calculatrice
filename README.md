@@ -1,4 +1,4 @@
-Créer la table calculs dans MySQL avec pour nom de la BD :calculatrice-binaire
+Créer la table calculs dans MySQL avec Pour nom de la BD :calculatrice-binaire
 
 CREATE TABLE calculs (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -10,4 +10,16 @@ CREATE TABLE calculs (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-pour lancer test : composer test
+Pour lancer test :
+- cd calculatrice-binaire
+- composer test
+
+Pour lancer test : terminal
+- cd calculatrice-binaire
+- cd public
+-  php -S localhost:8000
+- php tests/BinaryCalculatorTestCrawler.php
+
+Pour lancer test :
+- cd calculatrice-binaire
+- vendor/bin/behat
