@@ -1,16 +1,39 @@
+<?php
+require_once __DIR__ . '/../src/BinaryCalculators.php';
+require_once __DIR__ . '/../src/Database.php';
+require_once __DIR__ . '/../src/CalculRepository.php';
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $a = (int) $_POST['nombre1'];
+    $b = (int) $_POST['nombre2'];
+    $operation = $_POST['operation'];
 
+    $resultat = BinaryCalculators::calculer($a, $b, $operation);
 
+    $db = new Database();
+    $pdo = $db->getConnection();
+    $repo = new CalculRepository($pdo);
+    $repo->save(
+        $resultat['nombre1_decimal'],
+        $resultat['nombre2_decimal'],
+        $resultat['operation'],
+        $resultat['resultat_decimal'],
+        $resultat['resultat_binaire']
+    );
+} else {
+   
+    header('Location: index.php');
+    exit;
+}
+?>
 
-
-<!-- index.php -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Calculatrice Binaire</title>
+    <title>Résultat Calculatrice</title>
     <style>
-         body {
+       body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(to right, #83a4d4, #b6fbff);
             margin: 0;
@@ -55,7 +78,6 @@
         }
 
         button {
-            
             margin-top: 20px;
             width: 100%;
             background: #007bff;
@@ -93,33 +115,34 @@
         strong {
             color: #000;
         }
+        .btn-retour {
+            margin-top: 30px;
+            display: block;
+            width: 100%;
+            background: #0056b3;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .btn-retour:hover {
+            background: #0056b3;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Calculatrice Bin (AND, OR, XOR, +, -, x, /)</h2>
-        <form method="POST" action="resultat.php">
-            <label for="nombre1">Nombre 1 (décimal) :</label>
-            <input type="number" name="nombre1" id="nombre1" required>
-
-            <label for="nombre2">Nombre 2 (décimal) :</label>
-            <input type="number" name="nombre2" id="nombre2" required>
-
-            <label for="operation">Opération :</label>
-            <select name="operation" id="operation" required>
-                <option value="and">AND</option>
-                <option value="or">OR</option>
-                <option value="xor">XOR</option>
-                <option value="+">+</option>
-                <option value="-">-</option>
-                <option value="x">x</option>
-                <option value="/">/</option>
-            </select>
-
-            <button type="submit">Calculer</button>
-        </form>
+        <h2>Résultat du calcul</h2>
+        <div class="result">
+            <p><strong>Nombre 1 :</strong> <?= $resultat['nombre1_decimal'] ?> (<?= $resultat['nombre1_binaire'] ?>)</p>
+            <p><strong>Nombre 2 :</strong> <?= $resultat['nombre2_decimal'] ?> (<?= $resultat['nombre2_binaire'] ?>)</p>
+            <p><strong>Opération :</strong> <?= $resultat['operation'] ?></p>
+            <p><strong>Résultat :</strong> <?= $resultat['resultat_decimal'] ?> (<?= $resultat['resultat_binaire'] ?>)</p>
+        </div>
+         <a href="index.php" class="btn-retour"> Retour à la calculatrice </a>
     </div>
 </body>
 </html>
-
-
