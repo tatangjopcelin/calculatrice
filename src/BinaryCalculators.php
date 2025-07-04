@@ -1,4 +1,5 @@
 <?php
+namespace App;
 require_once 'Operation.php';
 require_once 'BinaireConverter.php';
 

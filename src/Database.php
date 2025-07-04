@@ -1,6 +1,7 @@
 <?php
+namespace App;
 class Database {
-    private PDO $pdo;
+    private \PDO $pdo;
 
     public function __construct() {
         $host = 'localhost';
@@ -8,11 +9,11 @@ class Database {
         $user = 'root';
         $pass = '';
 
-        $this->pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
-        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->pdo = new \PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
+        $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
 
-    public function getConnection(): PDO {
+    public function getConnection(): \PDO {
         return $this->pdo;
     }
 }

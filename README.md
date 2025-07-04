@@ -9,3 +9,5 @@ CREATE TABLE calculs (
     resultat_binaire VARCHAR(64) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+pour lancer test : composer test

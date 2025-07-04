@@ -1,4 +1,7 @@
 <?php
+use App\BinaryCalculators;
+use App\CalculRepository;
+use App\Database;
 require_once __DIR__ . '/../src/BinaryCalculators.php';
 require_once __DIR__ . '/../src/Database.php';
 require_once __DIR__ . '/../src/CalculRepository.php';

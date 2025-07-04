@@ -1,4 +1,5 @@
 <?php
+namespace App;
 class BinaireConverter
 {
     public static function versBinaire(?int $valeur): ?string

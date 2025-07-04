@@ -17,6 +17,7 @@ class ComposerStaticInit267ccc7ea1a58f002bf5e63d26eb618a
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
+        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '9b38cf48e83f5d8f60375221cd213eee' => __DIR__ . '/..' . '/phpstan/phpstan/bootstrap.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
     );
@@ -30,9 +31,12 @@ class ComposerStaticInit267ccc7ea1a58f002bf5e63d26eb618a
             'Symfony\\Polyfill\\Intl\\Normalizer\\' => 33,
             'Symfony\\Polyfill\\Intl\\Grapheme\\' => 31,
             'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Symfony\\Contracts\\Translation\\' => 30,
             'Symfony\\Contracts\\Service\\' => 26,
             'Symfony\\Contracts\\EventDispatcher\\' => 34,
+            'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\VarExporter\\' => 30,
+            'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\String\\' => 25,
             'Symfony\\Component\\Stopwatch\\' => 28,
             'Symfony\\Component\\Process\\' => 26,
@@ -82,6 +86,20 @@ class ComposerStaticInit267ccc7ea1a58f002bf5e63d26eb618a
             'Composer\\Pcre\\' => 14,
             'Clue\\React\\NDJson\\' => 18,
         ),
+        'B' => 
+        array (
+            'Behat\\Transformation\\' => 21,
+            'Behat\\Testwork\\' => 15,
+            'Behat\\Step\\' => 11,
+            'Behat\\Hook\\' => 11,
+            'Behat\\Gherkin\\' => 14,
+            'Behat\\Config\\' => 13,
+            'Behat\\Behat\\' => 12,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -109,6 +127,10 @@ class ComposerStaticInit267ccc7ea1a58f002bf5e63d26eb618a
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Symfony\\Contracts\\Translation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/translation-contracts',
+        ),
         'Symfony\\Contracts\\Service\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/service-contracts',
@@ -117,9 +139,17 @@ class ComposerStaticInit267ccc7ea1a58f002bf5e63d26eb618a
         array (
             0 => __DIR__ . '/..' . '/symfony/event-dispatcher-contracts',
         ),
+        'Symfony\\Component\\Yaml\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/yaml',
+        ),
         'Symfony\\Component\\VarExporter\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/var-exporter',
+        ),
+        'Symfony\\Component\\Translation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/translation',
         ),
         'Symfony\\Component\\String\\' => 
         array (
@@ -240,6 +270,38 @@ class ComposerStaticInit267ccc7ea1a58f002bf5e63d26eb618a
         'Clue\\React\\NDJson\\' => 
         array (
             0 => __DIR__ . '/..' . '/clue/ndjson-react/src',
+        ),
+        'Behat\\Transformation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/behat/behat/src/Behat/Transformation',
+        ),
+        'Behat\\Testwork\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/behat/behat/src/Behat/Testwork',
+        ),
+        'Behat\\Step\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/behat/behat/src/Behat/Step',
+        ),
+        'Behat\\Hook\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/behat/behat/src/Behat/Hook',
+        ),
+        'Behat\\Gherkin\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/behat/gherkin/src',
+        ),
+        'Behat\\Config\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/behat/behat/src/Behat/Config',
+        ),
+        'Behat\\Behat\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/behat/behat/src/Behat/Behat',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 

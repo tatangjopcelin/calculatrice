@@ -2,8 +2,8 @@
 
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__ . '/../src/BinaryCalculators.php';
-require_once __DIR__ . '/../src/CalculRepository.php';
+use App\BinaryCalculators;
+use App\CalculRepository;
 
 class BinaryCalculatorIntegrationTest extends TestCase
 {
@@ -47,22 +47,41 @@ class BinaryCalculatorIntegrationTest extends TestCase
         $operation = '+';
         $result = BinaryCalculators::calculer($a, $b, $operation);
 
-        // Mock PDOStatement
+       
         $stmtMock = $this->createMock(PDOStatement::class);
         $stmtMock->expects($this->once())
             ->method('execute')
             ->with([$a, $b, $operation, $result['resultat_decimal'], $result['resultat_binaire']]);
 
-        // Mock PDO
+        
         $pdoMock = $this->createMock(PDO::class);
         $pdoMock->expects($this->once())
             ->method('prepare')
             ->with("INSERT INTO calculs (nombre1, nombre2, operation, resultat, resultat_binaire) VALUES (?, ?, ?, ?, ?)")
             ->willReturn($stmtMock);
 
-        // Utilisation du Repository avec le mock
+        
         $repo = new CalculRepository($pdoMock);
         $repo->save($a, $b, $operation, $result['resultat_decimal'], $result['resultat_binaire']);
     }
+
+    public function testAndAvecBuilder()
+    {
+        require_once __DIR__ . '/Builder/CalculBuilder.php';
+        $builder = new \Tests\Builder\CalculBuilder();
+
+        $data = $builder
+            ->avecA(5)          
+            ->avecB(3)          
+            ->avecOperation('and')
+            ->build();
+
+        $result = BinaryCalculators::calculer($data['a'], $data['b'], $data['operation']);
+
+        $this->assertEquals(1, $result['resultat_decimal']);  
+        $this->assertEquals('1', $result['resultat_binaire']);
+        $this->assertEquals('AND', $result['operation']);
+    }
+
 
 }
