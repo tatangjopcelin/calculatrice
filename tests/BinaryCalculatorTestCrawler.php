@@ -29,9 +29,10 @@ function testCalcul($nombre1, $nombre2, $operation, $attendu_decimal, $attendu_b
 
     if (str_contains($resultText, "$attendu_decimal ($attendu_binaire)")) {
         echo "✅ OK\n\n";
+        echo " Contenu extrait :\n$resultText\n\n";
     } else {
         echo " ECHEC : résultat inattendu.\n";
-        echo " Contenu extrait :\n$resultText\n\n";
+        
     }
 }
 

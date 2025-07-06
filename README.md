@@ -10,7 +10,7 @@ CREATE TABLE calculs (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-Pour lancer test :
+Pour lancer test : terminal
 - cd calculatrice-binaire
 - composer test
 
@@ -20,6 +20,6 @@ Pour lancer test : terminal
 -  php -S localhost:8000
 - php tests/BinaryCalculatorTestCrawler.php
 
-Pour lancer test :
+Pour lancer test : terminal
 - cd calculatrice-binaire
 - vendor/bin/behat

@@ -40,6 +40,9 @@ class BinaryCalculatorIntegrationTest extends TestCase
         $this->assertNull(BinaryCalculators::calculer(5, 3, 'mod'));
     }
 
+
+    
+
         public function testSauvegardeAvecMock()
     {
         $a = 5;
