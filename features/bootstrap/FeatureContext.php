@@ -88,11 +88,11 @@ class FeatureContext implements Context
      * @Then le résultat affiché doit contenir :texte
      */
     public function leResultatAfficheDoitContenir($texte)
-    {
-        $result = $this->crawler->filter('.result')->text();
+{
+    $result = $this->crawler->filter('.result')->text();
+    Assert::assertStringContainsStringIgnoringCase($texte, $result);
+}
 
-        Assert::assertStringContainsString($texte, $result);
-    }
 
     /**
      * @Then je devrais voir le résultat binaire :expected

@@ -29,3 +29,7 @@ Scenario: Opération XOR via le formulaire
   When je remplis le formulaire avec 6 et 3 et l'opération "XOR"
   Then le résultat affiché doit contenir 5
   And je devrais voir le résultat binaire 101
+
+Scenario: Division par zéro via le formulaire
+  When je remplis le formulaire avec 5 et 0 et l'opération "/"
+  Then le résultat affiché doit contenir "Erreur : division par zéro"

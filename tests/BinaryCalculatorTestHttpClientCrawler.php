@@ -74,4 +74,12 @@ class BinaryCalculatorTestHttpClientCrawler extends TestCase
         Assert::assertStringContainsString('101', $result); 
     }
 
+    public function testDivisionParZero()
+{
+    $result = $this->submitFormAndGetResult('5', '0', '/');
+    Assert::assertStringContainsString('Division par zéro', $result);
+}
+
+    
+
 }

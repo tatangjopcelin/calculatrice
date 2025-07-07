@@ -12,6 +12,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $operation = $_POST['operation'];
 
     $resultat = BinaryCalculators::calculer($a, $b, $operation);
+    if ($resultat === null || $resultat['resultat_decimal'] === null) {
+        echo "<div class='result' style='
+            margin: 100px auto;
+            max-width: 400px;
+            background-color: #ffe6e6;
+            border: 1px solid #ff4d4d;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        '>
+            <h3 style='color: #cc0000;'>Erreur : Division par zéro impossible.</h3>
+            <a href='index.php' style='
+                display: inline-block;
+                margin-top: 15px;
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+            '>Retour au formulaire</a>
+        </div>";
+        exit;
+    }
+    
+    
 
     $db = new Database();
     $pdo = $db->getConnection();
@@ -146,7 +172,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p><strong>Nombre 1 :</strong> <?= $resultat['nombre1_decimal'] ?> (<?= $resultat['nombre1_binaire'] ?>)</p>
             <p><strong>Nombre 2 :</strong> <?= $resultat['nombre2_decimal'] ?> (<?= $resultat['nombre2_binaire'] ?>)</p>
             <p><strong>Opération :</strong> <?= $resultat['operation'] ?></p>
+            <?php if ($resultat['resultat_decimal'] === null): ?>
+            <p style="color:red;"><strong>Erreur :</strong> Division par zéro !</p>
+        <?php else: ?>
             <p><strong>Résultat :</strong> <?= $resultat['resultat_decimal'] ?> (<?= $resultat['resultat_binaire'] ?>)</p>
+        <?php endif; ?>
+
         </div>
          <a href="index.php" class="btn-retour"> Retour à la calculatrice </a>
     </div>
