@@ -112,7 +112,7 @@
                 <option value="xor">XOR</option>
                 <option value="+">+</option>
                 <option value="-">-</option>
-                <option value="x">x</option>
+                <option value="*">*</option>
                 <option value="/">/</option>
             </select>
 

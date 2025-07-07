@@ -12,7 +12,7 @@ class Operation
             '+'   => $a + $b,
             '-'   => $a - $b,
             '*'   => $a * $b,
-            '/'   => $b !== 0 ? intdiv($a, $b) : null,
+            '/' => $b !== 0 ? intdiv($a, $b) : null,
             default => null,
         };
     }

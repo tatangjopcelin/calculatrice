@@ -6,5 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'WebDriver' => array($vendorDir . '/instaclick/php-webdriver/lib'),
     'PHPMD\\' => array($vendorDir . '/phpmd/phpmd/src/main/php'),
 );

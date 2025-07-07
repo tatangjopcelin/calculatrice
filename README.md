@@ -14,12 +14,12 @@ Pour lancer test : terminal
 - cd calculatrice-binaire
 - composer test
 
-Pour lancer test : terminal
+Pour lancer test Crawler: terminal
 - cd calculatrice-binaire
 - cd public
 -  php -S localhost:8000
 - php tests/BinaryCalculatorTestCrawler.php
 
-Pour lancer test : terminal
+Pour lancer test behat: terminal
 - cd calculatrice-binaire
 - vendor/bin/behat
